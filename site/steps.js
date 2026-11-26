@@ -15,6 +15,7 @@ window.SALSA_STEPS = [
     name: "Guapear",
     videos: [
       "https://www.youtube.com/watch?v=YwxB1MSytYA",
+      "https://www.youtube.com/watch?v=4SnpIhCO54c",
     ],
   },
 ];
