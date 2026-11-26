@@ -43,4 +43,11 @@ window.SALSA_STEPS = [
       { url: "https://www.youtube.com/watch?v=_B55w-0o0qw", lang: "en" },
     ],
   },
+  {
+    name: "Cubanito",
+    videos: [
+      { url: "https://www.youtube.com/watch?v=iZKj8W9ig7Y", lang: "es" },
+      { url: "https://www.youtube.com/watch?v=mQY4rzgmHbM", lang: "en" },
+    ],
+  },
 ];
