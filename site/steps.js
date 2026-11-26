@@ -17,4 +17,11 @@ window.SALSA_STEPS = [
       { url: "https://www.youtube.com/watch?v=4SnpIhCO54c", lang: "es" },
     ],
   },
+  {
+    name: "Enchufla",
+    videos: [
+      { url: "https://www.youtube.com/watch?v=3tUcawE0Bhs", lang: "en" },
+      { url: "https://www.youtube.com/watch?v=rvBz611_6Sg", lang: "es" },
+    ],
+  },
 ];
