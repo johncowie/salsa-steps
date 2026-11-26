@@ -4,7 +4,10 @@ A static page listing salsa steps, each with YouTube videos showing how to dance
 
 ## Adding a step
 
-Edit `site/steps.js` and add an entry:
+In Claude Code, run `/add-step <name>` (e.g. `/add-step Dile que no`). It finds
+YouTube videos for the step, asks which to include, then adds and commits it.
+
+Or edit `site/steps.js` by hand and add an entry:
 
 ```js
 {
