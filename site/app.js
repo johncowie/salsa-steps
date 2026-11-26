@@ -57,7 +57,9 @@
   }
 
   function renderVideo(video, stepName, index, total) {
-    var src = "https://www.youtube-nocookie.com/embed/" + video.id +
+    // Use youtube.com rather than youtube-nocookie.com so the player can see the
+    // viewer's YouTube login; without it YouTube may demand a "not a bot" sign-in.
+    var src = "https://www.youtube.com/embed/" + video.id +
       (video.start ? "?start=" + video.start : "");
     var title = stepName + (total > 1 ? " – video " + (index + 1) : " – video");
     return el("div", { class: "video" }, [
