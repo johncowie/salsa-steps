@@ -24,4 +24,10 @@ window.SALSA_STEPS = [
       { url: "https://www.youtube.com/watch?v=rvBz611_6Sg", lang: "es" },
     ],
   },
+  {
+    name: "Dedo arriba",
+    videos: [
+      { url: "https://www.youtube.com/watch?v=uiqN-zjXh6U", lang: "en" },
+    ],
+  },
 ];
