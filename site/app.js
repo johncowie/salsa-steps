@@ -113,7 +113,7 @@
     ]);
 
     var body = videos.length
-      ? el("div", { class: "videos" + (videos.length > 1 ? " videos--many" : "") },
+      ? el("div", { class: "videos" },
           videos.map(function (v, i) { return renderVideo(v, step.name, i, videos.length); }))
       : el("p", { class: "empty" }, ["No videos yet."]);
 

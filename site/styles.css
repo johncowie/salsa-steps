@@ -258,7 +258,7 @@ h1 {
 }
 
 @media (min-width: 64rem) {
-  .videos--many {
+  .videos {
     grid-template-columns: repeat(2, 1fr);
   }
 }
