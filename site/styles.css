@@ -1,55 +1,55 @@
-/* Palette: https://huemint.com/brand-intersection/#palette=ecead5-26221e-12779e-65c7c8 */
+/* Palette: https://huemint.com/brand-intersection/#palette=704889-fcdaab-e99926-493029 */
 :root {
-  --cream: #ecead5;
-  --ink: #26221e;
-  --blue: #12779e;
-  --teal: #65c7c8;
+  --purple: #704889;
+  --cream: #fcdaab;
+  --orange: #e99926;
+  --brown: #493029;
 
   --bg: var(--cream);
-  --text: var(--ink);
-  --muted: #5a544c;
-  --heading: var(--blue);
-  --link: var(--blue);
-  --accent: var(--teal);
-  --surface: #f6f5e8;
-  --border: #d6d3b8;
-  --mast-bg: var(--ink);
+  --text: var(--brown);
+  --muted: #6e5248;
+  --heading: var(--purple);
+  --link: var(--purple);
+  --accent: var(--orange);
+  --surface: #fde6c4;
+  --border: #e8c28c;
+  --mast-bg: var(--brown);
   --mast-text: var(--cream);
-  --mast-accent: var(--teal);
+  --mast-accent: var(--orange);
 
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: var(--ink);
+    --bg: var(--brown);
     --text: var(--cream);
-    --muted: #b3ae98;
-    --heading: var(--teal);
-    --link: var(--teal);
-    --accent: var(--blue);
-    --surface: #312c27;
-    --border: #45403a;
-    --mast-bg: var(--blue);
+    --muted: #d4b894;
+    --heading: var(--orange);
+    --link: var(--orange);
+    --accent: var(--purple);
+    --surface: #573b33;
+    --border: #6a4c42;
+    --mast-bg: var(--purple);
     --mast-text: var(--cream);
-    --mast-accent: var(--teal);
+    --mast-accent: var(--cream);
 
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: var(--ink);
+  --bg: var(--brown);
   --text: var(--cream);
-  --muted: #b3ae98;
-  --heading: var(--teal);
-  --link: var(--teal);
-  --accent: var(--blue);
-  --surface: #312c27;
-  --border: #45403a;
-  --mast-bg: var(--blue);
+  --muted: #d4b894;
+  --heading: var(--orange);
+  --link: var(--orange);
+  --accent: var(--purple);
+  --surface: #573b33;
+  --border: #6a4c42;
+  --mast-bg: var(--purple);
   --mast-text: var(--cream);
-  --mast-accent: var(--teal);
+  --mast-accent: var(--cream);
 
   color-scheme: dark;
 }
@@ -275,8 +275,8 @@ h1 {
   display: inline-block;
   padding: 0.15rem 0.65rem;
   border-radius: 999px;
-  background: var(--teal);
-  color: var(--ink);
+  background: var(--orange);
+  color: var(--brown);
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.02em;
