@@ -11,7 +11,7 @@
 //            A plain link string also works, for a video with no language label.
 window.SALSA_STEPS = [
   {
-    name: "Guapear",
+    name: "Guapea",
     videos: [
       { url: "https://www.youtube.com/watch?v=YwxB1MSytYA", lang: "en" },
       { url: "https://www.youtube.com/watch?v=4SnpIhCO54c", lang: "es" },

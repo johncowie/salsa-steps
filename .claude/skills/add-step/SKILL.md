@@ -20,16 +20,26 @@ as their first language. So, in order of importance, look for videos that:
    or New York style (On1/On2) but mean different moves there, so treat
    linear-style videos as a different step.
 2. teach **just this step**. Skip full classes or videos covering several moves
-   (e.g. "Dile que no y guapea" when adding guapear).
+   (e.g. "Dile que no y guapea" when adding guapea).
 3. are **in Spanish**. English is fine when there's no good Spanish option.
 4. are **free to watch in full**. Skip course teasers that cut off and point to
    a paid course.
 5. have decent **video quality**. Skip old, low-resolution or badly filmed clips.
 
+## Naming the step
+
+Casino steps are usually named in the form they're called out in rueda: the
+command form, like "Guapea", "Enchufla", "Dile que no" or "Sácala", not the
+infinitive ("guapear", "enchufar"). Name the step the way the videos and
+teachers name it, even if the user typed a different form, and say so when you
+show them the videos, e.g. "I'll call it Guapea, as the videos do". Capitalise
+the first letter and keep any accents.
+
 ## 1. Check the step isn't already there
 
 Read `site/steps.js`. Steps match if their names are the same ignoring case and
-accents, since that's how anchors are built (`site/app.js`, `slugify`).
+accents, since that's how anchors are built (`site/app.js`, `slugify`). Also
+treat other forms of the same name as a match, e.g. "guapear" matches "Guapea".
 
 - If the step already exists, tell the user and ask whether to add more videos to
   it instead. If yes, carry on, but skip any videos it already has.
@@ -103,7 +113,7 @@ unclear". The user will correct you if you're wrong, and it's shown on the page,
 so don't guess wildly.
 
 Add a short note when it would help the user decide, e.g. "already used for
-Guapear" (an existing channel), "title doesn't say Cuban, check the style", or
+Guapea" (an existing channel), "title doesn't say Cuban, check the style", or
 "this channel's lessons are sometimes paid-course teasers".
 
 Then **end your turn** and ask the user to reply with the numbers they want,
