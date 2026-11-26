@@ -37,4 +37,10 @@ window.SALSA_STEPS = [
       { url: "https://www.youtube.com/watch?v=Jexcy9LGKjo", lang: "en" },
     ],
   },
+  {
+    name: "Setenta",
+    videos: [
+      { url: "https://www.youtube.com/watch?v=_B55w-0o0qw", lang: "en" },
+    ],
+  },
 ];
