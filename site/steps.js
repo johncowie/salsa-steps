@@ -30,4 +30,11 @@ window.SALSA_STEPS = [
       { url: "https://www.youtube.com/watch?v=uiqN-zjXh6U", lang: "en" },
     ],
   },
+  {
+    name: "Dile que no",
+    videos: [
+      { url: "https://www.youtube.com/watch?v=l_uBNIrMjBg", lang: "es" },
+      { url: "https://www.youtube.com/watch?v=Jexcy9LGKjo", lang: "en" },
+    ],
+  },
 ];
