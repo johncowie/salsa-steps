@@ -8,10 +8,6 @@
 //            A start time in the link (?t=42 or &t=1m30s) is kept.
 window.SALSA_STEPS = [
   {
-    name: "Test",
-    videos: ["https://www.youtube.com/watch?v=jNQXAC9IVRw"],
-  },
-  {
     name: "Guapear",
     videos: [
       "https://www.youtube.com/watch?v=YwxB1MSytYA",
