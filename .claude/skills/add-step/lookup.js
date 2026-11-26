@@ -6,7 +6,7 @@
 "use strict";
 
 const path = require("path");
-const { parseVideo } = require(path.join(__dirname, "../../../site/app.js"));
+const { parseVideo, normaliseVideo } = require(path.join(__dirname, "../../../site/app.js"));
 
 async function oembed(id) {
   const url = "https://www.youtube.com/oembed?format=json&url=" +
@@ -34,10 +34,9 @@ async function listChannels() {
   require(path.join(__dirname, "../../../site/steps.js"));
   const uses = [];
   for (const step of window.SALSA_STEPS) {
-    if (step.name === "Test") continue; // placeholder
-    for (const input of step.videos) {
-      const video = parseVideo(input);
-      if (video) uses.push({ step: step.name, id: video.id });
+    for (const entry of step.videos) {
+      const video = normaliseVideo(entry);
+      if (video) uses.push({ step: step.name, id: video.id, lang: video.lang });
     }
   }
 
@@ -45,14 +44,17 @@ async function listChannels() {
   const channels = new Map();
   for (const r of results) {
     if (r.status !== "OK") continue;
-    const c = channels.get(r.author_url) || { name: r.author_name, url: r.author_url, steps: new Set() };
+    const c = channels.get(r.author_url) ||
+      { name: r.author_name, url: r.author_url, steps: new Set(), langs: new Set() };
     c.steps.add(r.step);
+    if (r.lang) c.langs.add(r.lang);
     channels.set(r.author_url, c);
   }
 
   if (!channels.size) return console.log("No channels yet.");
   for (const c of channels.values()) {
-    console.log(`${c.name} | ${c.url} | used for: ${[...c.steps].join(", ")}`);
+    const langs = c.langs.size ? [...c.langs].join(", ") : "unknown";
+    console.log(`${c.name} | ${c.url} | language: ${langs} | used for: ${[...c.steps].join(", ")}`);
   }
 }
 

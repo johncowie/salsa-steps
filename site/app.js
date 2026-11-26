@@ -45,6 +45,24 @@
     return { id: id, start: parseStartTime(url.searchParams.get("t") || url.searchParams.get("start")) };
   }
 
+  // A video is a link or ID, or { url, lang } where lang is a language code like "es".
+  function normaliseVideo(entry) {
+    var input = typeof entry === "string" ? entry : entry && entry.url;
+    var video = input ? parseVideo(input) : null;
+    if (video && entry.lang) video.lang = String(entry.lang).toLowerCase();
+    return video;
+  }
+
+  // "es" -> "Español", "en" -> "English": each language's name in that language.
+  function languageName(code) {
+    try {
+      var name = new Intl.DisplayNames([code], { type: "language" }).of(code);
+      return name.charAt(0).toUpperCase() + name.slice(1);
+    } catch (e) {
+      return code.toUpperCase();
+    }
+  }
+
   function el(tag, attrs, children) {
     var node = document.createElement(tag);
     Object.keys(attrs || {}).forEach(function (key) {
@@ -61,21 +79,30 @@
     // viewer's YouTube login; without it YouTube may demand a "not a bot" sign-in.
     var src = "https://www.youtube.com/embed/" + video.id +
       (video.start ? "?start=" + video.start : "");
-    var title = stepName + (total > 1 ? " – video " + (index + 1) : " – video");
-    return el("div", { class: "video" }, [
-      el("iframe", {
-        src: src,
-        title: title,
-        loading: "lazy",
-        allow: "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
-        referrerpolicy: "strict-origin-when-cross-origin",
-        allowfullscreen: "",
-      }),
-    ]);
+    var title = stepName + (total > 1 ? " – video " + (index + 1) : " – video") +
+      (video.lang ? " (" + languageName(video.lang) + ")" : "");
+    var children = [
+      el("div", { class: "video" }, [
+        el("iframe", {
+          src: src,
+          title: title,
+          loading: "lazy",
+          allow: "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+          referrerpolicy: "strict-origin-when-cross-origin",
+          allowfullscreen: "",
+        }),
+      ]),
+    ];
+    if (video.lang) {
+      children.push(el("figcaption", {}, [
+        el("span", { class: "lang-tag", lang: video.lang }, [languageName(video.lang)]),
+      ]));
+    }
+    return el("figure", { class: "video-card" }, children);
   }
 
   function renderStep(step, id) {
-    var videos = (step.videos || []).map(parseVideo).filter(Boolean);
+    var videos = (step.videos || []).map(normaliseVideo).filter(Boolean);
     if (videos.length !== (step.videos || []).length) {
       console.warn("Some videos for \"" + step.name + "\" couldn't be read:", step.videos);
     }
@@ -123,7 +150,13 @@
   }
 
   if (typeof module !== "undefined") {
-    module.exports = { slugify: slugify, parseVideo: parseVideo, parseStartTime: parseStartTime };
+    module.exports = {
+      slugify: slugify,
+      parseVideo: parseVideo,
+      parseStartTime: parseStartTime,
+      normaliseVideo: normaliseVideo,
+      languageName: languageName,
+    };
   } else {
     render();
   }

@@ -33,8 +33,6 @@ accents, since that's how anchors are built (`site/app.js`, `slugify`).
 
 - If the step already exists, tell the user and ask whether to add more videos to
   it instead. If yes, carry on, but skip any videos it already has.
-- If the placeholder `Test` step is still in the list, note it — you'll ask about
-  it in step 5.
 
 ## 2. Find candidate videos
 
@@ -93,14 +91,20 @@ different wording, and if you still can't find any, tell the user and stop.
 List every candidate in a message, with full links so the user can watch them:
 
 ```
-1. **<title>** (<channel>)
+1. **<title>** (<channel>), in <Spanish/English/…>
    https://www.youtube.com/watch?v=<ID>
    <note, only if useful>
 ```
 
-Add a short note when it would help the user decide, e.g. "in English", "already
-used for Guapear" (an existing channel), "title doesn't say Cuban, check the
-style", or "this channel's lessons are sometimes paid-course teasers".
+Give each video's spoken language. Judge it from the title, the channel and any
+description in the search results; a channel already on the page is probably in
+the language `--channels` lists for it. If you can't tell, say "language
+unclear". The user will correct you if you're wrong, and it's shown on the page,
+so don't guess wildly.
+
+Add a short note when it would help the user decide, e.g. "already used for
+Guapear" (an existing channel), "title doesn't say Cuban, check the style", or
+"this channel's lessons are sometimes paid-course teasers".
 
 Then **end your turn** and ask the user to reply with the numbers they want,
 e.g. "1 and 3". Don't use AskUserQuestion here: its dialog covers the list, so
@@ -120,13 +124,16 @@ array, in the same format as the existing entries:
   {
     name: "<step name, capitalised, with its accents>",
     videos: [
-      "https://www.youtube.com/watch?v=<ID>",
+      { url: "https://www.youtube.com/watch?v=<ID>", lang: "es" },
     ],
   },
 ```
 
-Keep the videos in the order the user picked them. If the placeholder `Test`
-step is still there, ask whether to remove it too.
+`lang` is the video's spoken language as a two-letter code (`es`, `en`, …), as
+shown to the user and with any corrections they made. The page shows it as a
+label under the video. Leave `lang` out for a video whose language is unclear.
+
+Keep the videos in the order the user picked them.
 
 Check the file still loads:
 

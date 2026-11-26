@@ -13,13 +13,15 @@ Or edit `site/steps.js` by hand and add an entry:
 {
   name: "Dile que no",
   videos: [
-    "https://www.youtube.com/watch?v=VIDEO_ID",
-    "https://youtu.be/OTHER_ID?t=42",
+    { url: "https://www.youtube.com/watch?v=VIDEO_ID", lang: "es" },
+    { url: "https://youtu.be/OTHER_ID?t=42", lang: "en" },
   ],
 },
 ```
 
 Each step gets an anchor built from its name, so this one is at `#dile-que-no`.
+`lang` is the language spoken in the video and is shown as a label under it
+(e.g. "Español"); leave it out if you're not sure.
 
 ## Previewing locally
 
